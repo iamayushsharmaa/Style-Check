@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class AddNewItemWidget extends StatefulWidget {
   const AddNewItemWidget({super.key});
@@ -22,6 +23,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
 
   bool toggleAdditionDetails = false;
   bool hasOptions = false;
+  bool isColorPicker = true;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,14 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             Row(
               spacing: 10,
               children: [
-                TextWithInput(47.5, 155, 'Rate(Price/Unit)', false, rate, '100'),
+                TextWithInput(
+                  47.5,
+                  155,
+                  'Rate(Price/Unit)',
+                  false,
+                  rate,
+                  '100',
+                ),
                 TextWithInput(47.5, 155, 'Tax', true, tax, 'With Tax'),
               ],
             ),
@@ -185,7 +194,11 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
               filled: true,
               fillColor: Color(0xFF222222),
               suffixIcon: hasOptions
-                  ? Icon(Icons.arrow_forward_ios_rounded, size: 18, color: Colors.white,)
+                  ? Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 18,
+                      color: Colors.white,
+                    )
                   : null,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(35.41),
@@ -266,7 +279,11 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 isColorPicker
-                    ? Icon(Icons.color_lens_outlined, color: Colors.red)
+                    ? SvgPicture.asset(
+                        'assets/icons/color_wheel.svg',
+                        height: 18,
+                        width: 16,
+                      )
                     : Container(),
               ],
             ),

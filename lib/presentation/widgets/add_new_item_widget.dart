@@ -21,6 +21,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
   final TextEditingController size = TextEditingController();
 
   bool toggleAdditionDetails = false;
+  bool hasOptions = false;
 
   @override
   Widget build(BuildContext context) {
@@ -86,31 +87,39 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
                     ),
                   ),
                 ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(height: 12.39),
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 100, 'Quantity', quantity, '15'),
-                TextWithInput(50, 100, 'Free Quantity', freeQuantity, '1'),
-                TextWithInput(50, 100, 'Unit', unit, 'gm'),
+                TextWithInput(50, 100, 'Quantity', false, quantity, '15'),
+                TextWithInput(
+                  50,
+                  100,
+                  'Free Quantity',
+                  false,
+                  freeQuantity,
+                  '1',
+                ),
+                TextWithInput(50, 100, 'Unit', true, unit, 'gm'),
               ],
             ),
             SizedBox(height: 12.39),
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 155, 'Rate(Price/Unit)', rate, '100'),
-                TextWithInput(50, 155, 'Tax', tax, 'With Tax'),
+                TextWithInput(50, 155, 'Rate(Price/Unit)', false, rate, '100'),
+                TextWithInput(50, 155, 'Tax', true, tax, 'With Tax'),
               ],
             ),
             SizedBox(height: 12.39),
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 155, 'Count', count, 'Count'),
-                TextWithInput(50, 155, 'MRP', mrp, 'MRP'),
+                TextWithInput(50, 155, 'Count', false, count, 'Count'),
+                TextWithInput(50, 155, 'MRP', false, mrp, 'MRP'),
               ],
             ),
             SizedBox(height: 12.39),
@@ -130,7 +139,9 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
                     style: TextStyle(fontSize: 17, color: Colors.white),
                   ),
                   Icon(
-                    toggleAdditionDetails ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                    toggleAdditionDetails
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
                     color: Colors.white,
                     size: 24,
                   ),
@@ -154,6 +165,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
     double height,
     double width,
     String label,
+    bool hasOptions,
     TextEditingController controller,
     String hint,
   ) {
@@ -172,6 +184,9 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
               hintText: hint,
               filled: true,
               fillColor: Color(0xFF222222),
+              suffixIcon: hasOptions
+                  ? Icon(Icons.arrow_forward_ios_rounded, size: 18, color: Colors.white,)
+                  : null,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(35.41),
                 borderSide: BorderSide(color: Color(0xFF333333), width: 0.89),
@@ -181,6 +196,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
                 borderSide: BorderSide(color: Color(0xFF333333), width: 0.89),
               ),
             ),
+            style: TextStyle(color: Colors.white),
           ),
         ),
         SizedBox(height: 12.39),

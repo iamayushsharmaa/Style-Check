@@ -9,6 +9,7 @@ class TotalItemWidget extends StatefulWidget {
 
 class _TotalItemWidgetState extends State<TotalItemWidget> {
   final TextEditingController discount = TextEditingController();
+  final TextEditingController tax = TextEditingController();
   bool isRupee = true;
 
   @override
@@ -38,9 +39,24 @@ class _TotalItemWidgetState extends State<TotalItemWidget> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 12.39),
             Discount(discount),
-            SizedBox(height: 16),
+            SizedBox(height: 12.39),
+            Tax(tax),
+            SizedBox(height: 12.39),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total Amount:',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+                Text(
+                  '₹200.00',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -125,6 +141,40 @@ class _TotalItemWidgetState extends State<TotalItemWidget> {
         color: Colors.white,
         size: 20,
       ),
+    );
+  }
+
+  Widget Tax(TextEditingController controller) {
+    return Row(
+      children: [
+        Text('Tax \%', style: TextStyle(fontSize: 18, color: Colors.white)),
+        SizedBox(width: 20),
+        Expanded(
+          child: TextField(
+            controller: controller,
+            maxLines: 1,
+            decoration: InputDecoration(
+              hintText: 'None',
+              filled: true,
+              suffixIcon: Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 18,
+                color: Colors.white,
+              ),
+              fillColor: Color(0xFF222222),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(35.41),
+                borderSide: BorderSide(color: Color(0xFF333333), width: 0.89),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(35.41),
+                borderSide: BorderSide(color: Color(0xFF333333), width: 0.89),
+              ),
+            ),
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 }

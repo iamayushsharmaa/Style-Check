@@ -28,9 +28,54 @@ class AddItems extends StatelessWidget {
             AddNewItemWidget(),
             SizedBox(height: 16),
             TotalItemWidget(),
+            SizedBox(height: 20),
+            ActionButtons(),
+            SizedBox(height: 20),
           ],
         ),
       ),
+    );
+  }
+
+  Widget ActionButtons() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: Colors.grey, width: 1),
+            ),
+            child: Center(
+              child: Text(
+                'Save & New',
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          flex: 1,
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(color: Colors.grey, width: 1),
+            ),
+            child: Center(
+              child: Text(
+                'Save',
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

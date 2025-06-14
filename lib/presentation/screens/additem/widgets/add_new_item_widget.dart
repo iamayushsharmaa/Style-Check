@@ -233,6 +233,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             maxLines: 5,
             decoration: InputDecoration(
               hintText: 'Description',
+              hintStyle: TextStyle(color: Color(0xFF787878)),
               filled: true,
               fillColor: Color(0xFF222222),
               border: OutlineInputBorder(

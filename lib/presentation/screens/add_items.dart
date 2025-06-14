@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stylecheck/presentation/widgets/add_new_item_widget.dart';
 import 'package:stylecheck/presentation/widgets/total_item_widget.dart';
 
@@ -15,11 +17,37 @@ class AddItems extends StatelessWidget {
           'Add Items',
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
-        leading: Icon(
-          Icons.keyboard_arrow_left_outlined,
-          size: 32,
-          color: Colors.white,
+        leading: IconButton(
+          onPressed: () => context.pop(),
+          icon: Icon(
+            Icons.keyboard_arrow_left_outlined,
+            size: 32,
+            color: Colors.white,
+          ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Container(
+              height: 34,
+              width: 34,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(10.69),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset(
+                  'assets/icons/ring.svg',
+                  color: Colors.black,
+                  height: 17.96,
+                  width: 16.16,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

@@ -64,7 +64,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             ),
             SizedBox(height: 8),
             SizedBox(
-              height: 58,
+              height: 47.5,
               child: TextField(
                 controller: itemName,
                 maxLines: 1,
@@ -94,32 +94,32 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 100, 'Quantity', false, quantity, '15'),
+                TextWithInput(47.5, 100, 'Quantity', false, quantity, '15'),
                 TextWithInput(
-                  50,
+                  47.5,
                   100,
                   'Free Quantity',
                   false,
                   freeQuantity,
                   '1',
                 ),
-                TextWithInput(50, 100, 'Unit', true, unit, 'gm'),
+                TextWithInput(47.5, 100, 'Unit', true, unit, 'gm'),
               ],
             ),
             SizedBox(height: 12.39),
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 155, 'Rate(Price/Unit)', false, rate, '100'),
-                TextWithInput(50, 155, 'Tax', true, tax, 'With Tax'),
+                TextWithInput(47.5, 155, 'Rate(Price/Unit)', false, rate, '100'),
+                TextWithInput(47.5, 155, 'Tax', true, tax, 'With Tax'),
               ],
             ),
             SizedBox(height: 12.39),
             Row(
               spacing: 10,
               children: [
-                TextWithInput(50, 155, 'Count', false, count, 'Count'),
-                TextWithInput(50, 155, 'MRP', false, mrp, 'MRP'),
+                TextWithInput(47.5, 155, 'Count', false, count, 'Count'),
+                TextWithInput(47.5, 155, 'MRP', false, mrp, 'MRP'),
               ],
             ),
             SizedBox(height: 12.39),

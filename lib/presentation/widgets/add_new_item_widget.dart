@@ -20,11 +20,12 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
   final TextEditingController color = TextEditingController();
   final TextEditingController size = TextEditingController();
 
+  bool toggleAdditionDetails = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 800,
       decoration: BoxDecoration(
         color: Color(0xFF0E0E0E),
         borderRadius: BorderRadius.circular(10),
@@ -33,13 +34,14 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Item Name',
-                  style: TextStyle(fontSize: 16, color: Color(0xFF787878)),
+                  style: TextStyle(fontSize: 18, color: Color(0xFF787878)),
                 ),
                 SizedBox(
                   height: 26,
@@ -59,7 +61,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
                 ),
               ],
             ),
-            SizedBox(height: 6),
+            SizedBox(height: 8),
             SizedBox(
               height: 58,
               child: TextField(
@@ -113,6 +115,35 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             ),
             SizedBox(height: 12.39),
             descriptionWidget(description),
+            SizedBox(height: 18),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  toggleAdditionDetails = !toggleAdditionDetails;
+                });
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Additional Details',
+                    style: TextStyle(fontSize: 17, color: Colors.white),
+                  ),
+                  Icon(
+                    toggleAdditionDetails ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 6),
+            toggleAdditionDetails
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [colorSizePicker(true), colorSizePicker(false)],
+                  )
+                : Container(),
           ],
         ),
       ),
@@ -129,7 +160,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 16, color: Color(0xFF787878))),
+        Text(label, style: TextStyle(fontSize: 18, color: Color(0xFF787878))),
         SizedBox(height: 8),
         SizedBox(
           height: height,
@@ -152,6 +183,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
             ),
           ),
         ),
+        SizedBox(height: 12.39),
       ],
     );
   }
@@ -162,7 +194,7 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
       children: [
         Text(
           'Description',
-          style: TextStyle(fontSize: 16, color: Color(0xFF787878)),
+          style: TextStyle(fontSize: 18, color: Color(0xFF787878)),
         ),
         SizedBox(height: 7),
         SizedBox(
@@ -184,6 +216,44 @@ class _AddNewItemWidgetState extends State<AddNewItemWidget> {
               ),
             ),
             style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget colorSizePicker(bool isColorPicker) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 6),
+        Text(
+          isColorPicker ? 'Color' : 'Size',
+          style: TextStyle(fontSize: 18, color: Color(0xFF787878)),
+        ),
+        SizedBox(height: 6),
+        Container(
+          height: 58.92,
+          width: 160,
+          decoration: BoxDecoration(
+            color: Color(0xFF222222),
+            borderRadius: BorderRadius.circular(35.41),
+            border: Border.all(width: 0.89, color: Color(0xFF333333)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  isColorPicker ? 'Choose color' : 'Choose size',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+                isColorPicker
+                    ? Icon(Icons.color_lens_outlined, color: Colors.red)
+                    : Container(),
+              ],
+            ),
           ),
         ),
       ],

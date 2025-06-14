@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TotalItemWidget extends StatelessWidget {
+class TotalItemWidget extends StatefulWidget {
   const TotalItemWidget({super.key});
+
+  @override
+  State<TotalItemWidget> createState() => _TotalItemWidgetState();
+}
+
+class _TotalItemWidgetState extends State<TotalItemWidget> {
+  final TextEditingController discount = TextEditingController();
+  bool isRupee = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +32,98 @@ class TotalItemWidget extends StatelessWidget {
                   'Subtotal(Rate x Qty)',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
-                Text('', style: TextStyle(fontSize: 18, color: Colors.white)),
+                Text(
+                  '₹200.00',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
               ],
             ),
+            SizedBox(height: 16),
+            Discount(discount),
+            SizedBox(height: 16),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget Discount(TextEditingController controller) {
+    return Row(
+      children: [
+        Text('Discount', style: TextStyle(fontSize: 18, color: Colors.white)),
+        SizedBox(width: 20),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 100,
+                child: TextField(
+                  controller: controller,
+                  maxLines: 1,
+                  decoration: InputDecoration(
+                    hintText: '50',
+                    filled: true,
+                    fillColor: Color(0xFF222222),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(11),
+                      borderSide: BorderSide(
+                        color: Color(0xFF333333),
+                        width: 0.89,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(11),
+                      borderSide: BorderSide(
+                        color: Color(0xFF333333),
+                        width: 0.89,
+                      ),
+                    ),
+                  ),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              SizedBox(width: 6),
+              Row(
+                children: [
+                  PercentageOrRuppe(false),
+                  Transform.scale(
+                    scale: 0.9,
+                    child: Switch(
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Color(0xFF222222),
+                      activeColor: Colors.white,
+                      activeTrackColor: Color(0xFFE4782A),
+                      value: isRupee,
+                      onChanged: (val) {
+                        setState(() {
+                          isRupee = val;
+                        });
+                      },
+                    ),
+                  ),
+                  PercentageOrRuppe(true),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget PercentageOrRuppe(bool isRupee) {
+    return Container(
+      height: 40,
+      width: 40,
+      decoration: BoxDecoration(
+        color: Color(0xFF222222),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Icon(
+        isRupee ? Icons.currency_rupee : Icons.percent,
+        color: Colors.white,
+        size: 20,
       ),
     );
   }

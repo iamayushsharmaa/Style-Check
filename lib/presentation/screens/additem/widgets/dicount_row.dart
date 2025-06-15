@@ -46,6 +46,7 @@ class _DiscountRowState extends State<DiscountRow> {
                     ),
                   ),
                   style: TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
                 ),
               ),
               SizedBox(width: 6),

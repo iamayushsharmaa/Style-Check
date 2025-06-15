@@ -92,6 +92,7 @@ class _TotalItemWidgetState extends State<TotalItemWidget> {
               ),
             ),
             style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
           ),
         ),
       ],

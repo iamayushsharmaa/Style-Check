@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'item_amount_calculate.dart';
 
@@ -114,7 +115,6 @@ class _CustomerInfoState extends State<CustomerInfo> {
               ),
               style: TextStyle(color: Colors.white),
               cursorColor: Colors.white,
-
             ),
           ),
 
@@ -155,7 +155,6 @@ class _CustomerInfoState extends State<CustomerInfo> {
           SizedBox(height: 16),
           ActionButtons(),
           SizedBox(height: 10),
-
         ],
       ),
     );
@@ -273,7 +272,7 @@ class _CustomerInfoState extends State<CustomerInfo> {
       children: [
         Expanded(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () => context.pushNamed('addItem'),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
               backgroundColor: Colors.white,

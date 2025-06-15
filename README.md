@@ -1,16 +1,12 @@
-# stylecheck
+# Stylecheckk 
 
-A new Flutter project.
+Assignment in Flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Here are Images of Figma Ui Screen built with Flutter and GoRouter.
 
-A few resources to get you started if this is your first Flutter project:
+![Image Alt](https://github.com/iamayushsharmaa/Style-Check/blob/b44d968babcc5fa0c04fc8a3f84bab15905ae67a/Add%20Invoice%201.jpg)
+![Image Alt](https://github.com/iamayushsharmaa/Style-Check/blob/b44d968babcc5fa0c04fc8a3f84bab15905ae67a/Add%20Invoice%202.jpg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

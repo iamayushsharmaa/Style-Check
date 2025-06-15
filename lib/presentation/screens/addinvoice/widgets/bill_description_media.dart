@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BillDescriptionMedia extends StatefulWidget {
   final TextEditingController controller;
@@ -25,6 +26,72 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Payment Type',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+            Row(
+              children: [
+                SvgPicture.asset(
+                  'assets/icons/card.svg',
+                  width: 13,
+                  height: 13,
+                ),
+                SizedBox(width: 12),
+                Text(
+                  'Cash',
+                  style: TextStyle(fontSize: 15, color: Colors.white),
+                ),
+                SizedBox(width: 12),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 14,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(height: 12.39),
+        SizedBox(
+          width: double.infinity,
+          height: 47.5,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              elevation: 2,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.add, size: 17, color: Colors.black),
+                const SizedBox(width: 8),
+                const Text(
+                  'Add Payment Type',
+                  style: TextStyle(
+                    color: Colors.black, // Text color
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        SizedBox(height: 12.39),
+        CopySupplyRow('No. of Copies', 'None'),
+        SizedBox(height: 10),
+        CopySupplyRow('State of Supply', 'Select State'),
+        SizedBox(height: 15.39),
+
         Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -39,7 +106,7 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
                 'Bill Description',
                 style: TextStyle(fontSize: 20, color: Colors.white),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 12.39),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
@@ -244,16 +311,38 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
         ),
         SizedBox(width: 10),
         Container(
-            height: 50,
-            width: 60,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: Colors.grey, width: 1),
-            ),
-            child: Icon(Icons.share, color: Colors.black,),
+          height: 50,
+          width: 60,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(color: Colors.grey, width: 1),
           ),
+          child: Icon(Icons.share, color: Colors.black),
+        ),
+      ],
+    );
+  }
 
+  Widget CopySupplyRow(String title, String optionText) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title, style: TextStyle(fontSize: 17, color: Color(0xFF787878))),
+        Row(
+          children: [
+            Text(
+              optionText,
+              style: TextStyle(fontSize: 17, color: Color(0xFF787878)),
+            ),
+            SizedBox(width: 12),
+            Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 14,
+              color: Color(0xFF787878),
+            ),
+          ],
+        ),
       ],
     );
   }

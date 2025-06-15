@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stylecheck/presentation/screens/addinvoice/widgets/bill_description_media.dart';
 import 'package:stylecheck/presentation/screens/addinvoice/widgets/customer_info.dart';
+import 'package:stylecheck/presentation/screens/addinvoice/widgets/date_time.dart';
 import 'package:stylecheck/presentation/screens/addinvoice/widgets/discount_charges.dart';
+import 'package:stylecheck/presentation/screens/addinvoice/widgets/invoice_no.dart';
+import 'package:stylecheck/presentation/screens/addinvoice/widgets/store_detail.dart';
 import 'package:stylecheck/presentation/screens/addinvoice/widgets/total_amount.dart';
 
 class AddInvoice extends StatefulWidget {
@@ -24,7 +27,7 @@ class _AddInvoiceState extends State<AddInvoice> {
       appBar: AppBar(
         backgroundColor: Color(0xFF090909),
         title: Text(
-          'Add Items',
+          'Add Invoice',
           style: TextStyle(fontSize: 20, color: Colors.white),
         ),
         leading: IconButton(
@@ -40,6 +43,13 @@ class _AddInvoiceState extends State<AddInvoice> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            InvoiceNo(),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [DateTimeWidget(), StoreDetailWidget()],
+            ),
+            SizedBox(height: 16),
             CustomerInfo(),
             SizedBox(height: 16),
             DiscountCharges(),

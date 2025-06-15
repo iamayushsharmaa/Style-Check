@@ -103,8 +103,8 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Bill Description',
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                'Bill Description & Media',
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
               SizedBox(height: 12.39),
               Padding(
@@ -114,7 +114,7 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
                   children: [
                     Text(
                       'Description',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     SizedBox(height: 10),
                     SizedBox(
@@ -245,6 +245,7 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
           child: TextField(
             controller: widget.shippingAddress,
             decoration: InputDecoration(
+
               hintText: 'Shipping Address',
               hintStyle: TextStyle(color: Color(0xFF787878)),
               filled: true,
@@ -263,6 +264,7 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
               ),
             ),
             style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
           ),
         ),
         SizedBox(height: 16),
@@ -318,7 +320,18 @@ class _BillDescriptionMediaState extends State<BillDescriptionMedia> {
             borderRadius: BorderRadius.circular(5),
             border: Border.all(color: Colors.grey, width: 1),
           ),
-          child: Icon(Icons.share, color: Colors.black),
+          child: Center(
+            child: SvgPicture.asset(
+              'assets/icons/share_icon.svg',
+              height: 20,
+              width: 20,
+              colorFilter: const ColorFilter.mode(
+                Colors.black,
+                BlendMode.srcIn,
+              ),
+              semanticsLabel: 'Share Icon',
+            ),
+          ),
         ),
       ],
     );

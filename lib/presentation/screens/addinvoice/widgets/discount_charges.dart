@@ -12,6 +12,8 @@ class DiscountCharges extends StatefulWidget {
 class _DiscountChargesState extends State<DiscountCharges> {
   final TextEditingController discount = TextEditingController();
   final TextEditingController shipping = TextEditingController();
+  final TextEditingController packaging = TextEditingController();
+  final TextEditingController adjustment = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,9 @@ class _DiscountChargesState extends State<DiscountCharges> {
           SizedBox(height: 12.39),
           TextWithInput('Shipping', shipping),
           SizedBox(height: 12.39),
-          TextWithInput('Packaging', shipping),
+          TextWithInput('Packaging', packaging),
           SizedBox(height: 12.39),
-          TextWithInput('Adjustment', shipping),
+          TextWithInput('Adjustment', adjustment),
           SizedBox(height: 12.39),
           CheckboxTextRow(
             isReceived: false,
@@ -81,6 +83,7 @@ class _DiscountChargesState extends State<DiscountCharges> {
               ),
             ),
             style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
           ),
         ),
       ],

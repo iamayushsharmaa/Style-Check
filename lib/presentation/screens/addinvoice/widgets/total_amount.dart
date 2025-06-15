@@ -252,6 +252,7 @@ class CheckboxTextRowState extends State<CheckboxTextRow> {
                               ),
                               style: const TextStyle(fontSize: 12),
                               cursorHeight: 14,
+                              cursorColor: Colors.white,
                             ),
                           ),
                           Container(

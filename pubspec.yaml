@@ -65,6 +65,9 @@ flutter:
     - assets/icons/color_wheel.svg
     - assets/icons/ring.svg
     - assets/icons/card.svg
+    - assets/icons/invoice.svg
+    - assets/icons/setting.svg
+    - assets/icons/share_icon.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
